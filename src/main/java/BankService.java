@@ -6,7 +6,7 @@
  */
 public class BankService {
     /**
-     * The balance should be kept private. If it were public, then other developers could write code in other classes
+     * The balance should bex kept private. If it were public, then other developers could write code in other classes
      * that could cause the balance to exhibit unintended behavior, like being negative. The private access modifier
      * will allow only the methods within this class to interact with the balance.
      */
@@ -23,7 +23,7 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        this.balance += amount;
     }
 
     /**
@@ -32,7 +32,9 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        if (this.balance - amount >= 0) {
+            this.balance -= amount;
+        }
     }
 
     /**
@@ -40,6 +42,6 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return this.balance;
     }
 }
